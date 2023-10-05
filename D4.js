@@ -3,16 +3,15 @@
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let l1 = 10;
-let l2 = 20;
+let l1 = 20;
+let l2 = 30;
 
 function areaRettangolo() {
   const result = l1 * l2;
   return result;
 }
-const area = areaRettangolo();
 
-console.log(area);
+console.log(areaRettangolo(10, 20));
 
 /* ESERCIZIO 2
  Scrivi una funzione di nome "crazySum", che riceve due numeri interi come parametri.
@@ -22,42 +21,37 @@ console.log(area);
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-let num1 = 2;
-let num2 = 3;
+let num1 = 4;
+let num2 = 8;
 
-function crazySum() {
-  console.log("num1", num1);
-  console.log("num2", num2);
-
-  if (num1 != num2) {
-    const somma = num1 + num2;
-
-    return somma;
-  } else if (num1 === num2) {
-  } else {
-    return "manca qualche valore";
+function crazySum(num1, num2) {
+  if (num1 === num2) {
+    return (num1 + num2) * 3;
   }
+  return num1 + num2;
 }
-const somma = crazySum();
 
-console.log(somma);
+console.log(crazySum(4, 8));
 /* ESERCIZIO 3
  Scrivi una funzione di nome "crazyDiff" che calcola la differenza assoluta tra un numero fornito come parametro e 19.
  Deve inoltre tornare la differenza assoluta moltiplicata per tre qualora il numero fornito sia maggiore di 19.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let diff = 20;
 
-function crazyDiff() {
-  const diff2 = diff - 19;
-  return diff2;
+let num = 2;
+
+function crazyDiff(num) {
+  if (num < 19) {
+    let mancante = num - 19;
+    return mancante;
+  } else {
+    let differenzaAss = 3 * (num - 19);
+    return differenzaAss;
+  }
 }
 
-const diffAss = crazyDiff();
-
-console.log(diffAss);
-
+console.log(crazyDiff());
 /* ESERCIZIO 4
  Scrivi una funzione di nome "boundary" che accetta un numero intero n come parametro, e ritorna true se n è compreso tra 20 e 100 (incluso) oppure
  se n è uguale a 400.
@@ -77,12 +71,29 @@ console.log(diffAss);
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
  di 3 o di 7. (Suggerimento: usa l'operatore modulo)
 */
+function check3and7(x) {
+  return x % 3 === 0 || x % 7 === 0;
+}
+
+console.log(check3and7());
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
 */
+
+const reverseString = function (str) {
+  let newString = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    // console.log(str[i]);
+    newString = newString + str[i].toUpperCase();
+  }
+
+  return newString;
+};
+
+console.log(reverseString("epicode"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
@@ -92,15 +103,6 @@ console.log(diffAss);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let newstr = "benvenuto a tutti";
-
-function UpperFirst() {
-  const stringa = newstr[0].toUpperCase();
-  return stringa;
-}
-
-const parole = UpperFirst();
-console.log(parole);
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -108,12 +110,17 @@ console.log(parole);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-let phrase = "benvenuto a tutti";
+function cutString(stringa) {
+  if (stringa.length < 2) {
+    return "";
+  }
 
-const cutString = phrase.slice(1, -1);
+  return stringa.slice(1, -1);
+}
 
-console.log(cutString);
-
+const stringaOriginale = "epicode";
+const nuovaStringa = cutString(stringaOriginale);
+console.log(nuovaStringa);
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
